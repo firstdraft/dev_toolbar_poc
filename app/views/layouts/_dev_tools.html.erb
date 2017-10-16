@@ -4,19 +4,24 @@
   <% end %>
 
   <% if true # check if web-console is installed %>
-    <% console %>
+    <% if true # check if IP whitelisted %>
+      <% console %>
 
-    <%= link_to "Console", "#", id: "console_button", class: "dev_tools_button btn btn-outline-secondary" %>
+      <%= link_to "Console", "#", id: "console_button", class: "dev_tools_button btn btn-outline-secondary" %>
 
-    <script>
-      document.addEventListener("turbolinks:load", function() {
-        $("#console").hide();
+      <script>
+        document.addEventListener("turbolinks:load", function() {
+          $("#console").hide();
 
-        $("#console_button").on("click", function() {
-          $("#console").toggle();
-          return false;
+          $("#console_button").on("click", function() {
+            $("#console").toggle();
+            return false;
+          });
         });
-      });
-    </script>
+      </script>
+    <% else %>
+      Button to slide up a div that contains the command to whitelist IP
+    <% end %>
+
   <% end %>
 </div>
